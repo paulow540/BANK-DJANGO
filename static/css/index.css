@@ -1,0 +1,48 @@
+#prof{
+    color: white;
+    cursor: pointer;
+}
+#prof > .icon{
+    margin-left: 12px;
+    margin-top: 5px;
+}
+#prof :hover{
+    background-color: rgb(228, 228, 244);
+}
+
+
+#dep{
+    color: white;
+    cursor: pointer; 
+}
+#dep > .icon{
+    margin-left: 12px;
+    margin-top: 5px;
+}
+#dep :hover{
+    background-color: rgb(228, 228, 244);
+}
+
+#tran{
+    color: white;
+    cursor: pointer; 
+}
+#tran > .icon{
+    margin-left: 12px;
+    margin-top: 5px;
+}
+#tran :hover{
+    background-color: rgb(228, 228, 244);
+}
+
+#rech{
+    color: white;
+    cursor: pointer; 
+}
+#rech > .icon{
+    margin-left: 12px;
+    margin-top: 5px;
+}
+#rech :hover{
+    background-color: rgb(228, 228, 244);
+}
