@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BANKING</title>
+    <title>{% block title %} {% endblock title%}</title>
     <link rel="stylesheet"
           id="theme_link"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/materia/bootstrap.min.css"/>
@@ -27,16 +27,16 @@
     <div class="collapse navbar-collapse" id="navbarsDefault">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link">Home</a>
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">About</a>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Contact</a>
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Sign-in</a>
+                <a class="nav-link" href="{% url 'login' %}">Sign-in</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">Sign-up</a>
@@ -46,20 +46,9 @@
     </div>
 </nav>
 
-<div class="cont" >
-    <div class="row">
-        <div class="way col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xm-12 ">
-            <h1>make a bank account <br><span>online</span> </h1>
-            <h2>
-                make a bank account in no time and there are no fees for transactions!
-            </h2>
-            <button class="btn btn-dark">get started App</button>
-        </div>
-        <div class="col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xm-12">
-            <h1></h1>
-        </div>
-    </div>
-</div>
+{% block body_content %}
+
+{% endblock body_content %}
 
 </body>
 </html>
