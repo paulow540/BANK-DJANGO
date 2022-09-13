@@ -91,16 +91,27 @@
             <span>Messages</span>
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+        <button  type="button" class="pt-3 btn btn-primary">
+          <a class="navbar-item" href="{% url 'logout' %}">
             <span class="icon"><i class="mdi mdi-logout"></i></span>
             <span>Log Out</span>
           </a>
+        </button>
         </div>
       </div>
-      <a title="Log out" class="navbar-item desktop-icon-only">
+     <button type="submit"  class="pt-3 btn btn-primary">
+      <a title="Log out" class="navbar-item desktop-icon-only" href="{% url 'logout' %}">
         <span class="icon"><i class="mdi mdi-logout"></i></span>
         <span>Log out</span>
       </a>
+     </button>
+<!--  -->
+     <button type="submit"  class="pt-3 btn btn-primary">
+      <a title="Log out" class="navbar-item desktop-icon-only" href="{% url 'password_change' %}">
+        <span class="icon"><i class="mdi mdi-logout"></i></span>
+        <span>change password</span>
+      </a>
+     </button>
     </div>
   </div>
 </nav>
