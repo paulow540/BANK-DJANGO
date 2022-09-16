@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'django_forms_bootstrap',
+    'myCityBank.userapp',
+    'myCityBank.transactionapp',
 ]
 
 MIDDLEWARE = [

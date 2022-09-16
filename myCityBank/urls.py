@@ -17,6 +17,9 @@ from re import template
 from django.views.generic import TemplateView
 from django.contrib import admin
 from django.urls import path, re_path, include
+from myCityBank.userapp.views import SignUpView
+
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,6 +31,9 @@ urlpatterns = [
 
 
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
+    re_path(r'^accounts/signup/$', SignUpView.as_view(), name = "signup"),
+
+
 
 
 ]
