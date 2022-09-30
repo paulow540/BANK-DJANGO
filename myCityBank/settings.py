@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import pymysql
 pymysql.install_as_MySQLdb()
+# import MySQLdb
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,12 +86,10 @@ DATABASES = {
         "ENGINE": 'django.db.backends.mysql',
         "NAME": "citybank_db",
         "USER": "root",
-        "PASSWORD" : "",
-        "HOST": '127.0.0.1',
+        "PASSWORD" : "paulow540",
+        "HOST": 'localhost',
         "PORT" : '3306',
-        "OPTIONS": {
-            "autocommit" : True,
-        },
+
 
     }
 } 

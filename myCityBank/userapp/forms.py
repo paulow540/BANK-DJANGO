@@ -5,6 +5,7 @@ from typing import Optional
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import profile
 
 
 
@@ -24,3 +25,5 @@ class SignUpForm(UserCreationForm):
             'password1',
             'password2',
         ]
+
+# class User_form
