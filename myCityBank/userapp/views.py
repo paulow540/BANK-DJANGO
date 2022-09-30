@@ -32,8 +32,18 @@ def myProfile(request, user_id):
 @login_required
 @transaction.atomic
 def editmyProfile(request, user_id):
-    if request.method = "POST":
-        pass
+    if request.method == "POST":
+        user = get_object_or_404(User, id=user_id)
+        user_form = User_form(request.POST, instance=user)
+        profile_form = Staff_form(request.POST or None, request.FILES or None, instanceuser.profile)
+        if user_form.is_valid()  and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+
+
+            if profile_form.cleaned_data["staff"]:
+                user.is_staff = True
+                user_form.save()
     
     else:
         user = get_object_or_404(User, id=user_id)
