@@ -26,4 +26,30 @@ class SignUpForm(UserCreationForm):
             'password2',
         ]
 
-# class User_form
+class User_form(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
+
+
+class Staff_form(forms.ModelForm):
+    profile_passport = forms.ImageField(required =False, label='Profile passport')
+    means_of_identity = forms.ImageField(required =False, label='Means of identity')
+    particulars = forms.FileField(required=False, label='particulars')
+
+    class Meta:
+        model = profile
+        fields = [
+            'status',
+            'address',
+            'phone',
+            'nationality',
+            'state',
+            'means_of_identity',
+            'particulars',
+            'profile_passport',
+            'position',
+            'marital_status',
+            'staff',
+        ]

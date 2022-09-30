@@ -1,11 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
-from .forms import SignUpForm
+from .forms import SignUpForm, User_form, Staff_form
+from django.contrib.auth.models import User
+
 from .models import profile
 from django.http import HttpResponsePermanentRedirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+# from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -29,7 +32,19 @@ def myProfile(request, user_id):
 @login_required
 @transaction.atomic
 def editmyProfile(request, user_id):
-    return 0
+    if request.method = "POST":
+        pass
+    
+    else:
+        user = get_object_or_404(User, id=user_id)
+        user_form = User_form(instance=user)
+        profile_form = Staff_form(instance=user.profile)
+    
+    return render(request, 'userapp/user_edit_profile_form.html',{'user_form': user_form, 'profile_form': profile_form})
+
+        
+
+
 
 
 def deactivatemyProfile(request, user_id):
