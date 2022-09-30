@@ -18,7 +18,7 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 from django.urls import path, re_path, include
 from myCityBank.userapp.views import SignUpView
-import settings
+from . import settings
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 
 

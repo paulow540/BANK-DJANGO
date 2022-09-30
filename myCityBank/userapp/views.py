@@ -43,7 +43,15 @@ def editmyProfile(request, user_id):
 
             if profile_form.cleaned_data["staff"]:
                 user.is_staff = True
-                user_form.save()
+                user.save()
+            else:
+                user.is_staff = False
+                user.save()
+            messages.success(request, ('Your profile was successfully updated!'))
+            return myProfile(request, user_id)
+       
+
+
     
     else:
         user = get_object_or_404(User, id=user_id)
@@ -58,7 +66,16 @@ def editmyProfile(request, user_id):
 
 
 def deactivatemyProfile(request, user_id):
-    return 0
+    user = User.objects.get(id=user_id)
+    if user.is_active:
+        user.is_active = False
+        user.save()
+    else:
+        user.is_staff = True
+        user.save()
+    messages.success(request, ('Your profile was successfully updated!'))
+    return myProfile(request, user_id)
+        
 
 @login_required
 def manageStaff(request, user_id):
