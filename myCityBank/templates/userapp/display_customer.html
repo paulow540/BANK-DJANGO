@@ -1,0 +1,106 @@
+{% extends 'index_main.html' %}
+{% load static %}
+{% block title %} customer list {% endblock %}
+
+
+
+
+{% block body_content %}
+
+
+
+
+
+
+<div style="margin-top: 250px;border-color: 1px solid red;">
+
+    <div class="row mt-4">
+        <div>
+            <h1>customer list</h1>
+        </div>
+        <div class="col-6 mx-auto mt-4">
+
+            <table>
+                <thead>
+                    <th>CUSTOMER ID</th>
+                    <th>PICTURE</th>
+                    <th>USERNAME</th>
+                    <th>FIRST NAME</th>
+                    <th>LASTNAME</th>
+                    <th>STATUS</th>
+                    <th>PROFILE</th>
+                    <th>MANAGE ACCOUNT</th>
+                </thead>
+
+                    {% if customer_detail %}
+
+                    {% for customer in customer_detail %}
+                    <td>
+                        <span style="color: #969cad,">
+                            {{customer.user_id}}
+                        </span>
+                    </td>
+                    <td>
+                        {% if customer.profile_passport %}
+                        <img src="{{customer.profile_passport}}" alt="{{profile.user.username}}" class="rounded-full">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{customer.user.username}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{customer.first_name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{customer.last_name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{customer.postion}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{customer.status}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            <a href="{% url 'my_profile' customer.user_id %}"></a>
+                        </span>
+                    </td>
+                    <td>
+                        
+                            <a href="{% url 'manage_account' customer.user_id %}"></a>
+                            <span style="color: #969cad,">
+                            Manage Account
+                            </span>
+
+                    </td>
+
+
+
+
+
+
+
+                    {% endfor %}
+
+                    {% endif %}
+
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock body_content %}

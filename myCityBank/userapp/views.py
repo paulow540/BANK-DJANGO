@@ -78,9 +78,11 @@ def deactivatemyProfile(request, user_id):
         
 
 @login_required
-def manageStaff(request, user_id):
-    pass
+def manageStaff(request):
+    staff = profile.objects.all().filter(is_staff=True)
+    return render(request=request, template_name="userapp/display_staff.html",content_type={"staff_detail":staff})
 
 @login_required
 def manageCustomer(request, user_id):
-    pass
+      staff = profile.objects.all().filter(is_staff=False)
+      return render(request=request, template_name="userapp/display_customer.html",content_type={"customer":staff})

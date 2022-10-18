@@ -1,0 +1,106 @@
+{% extends 'index_main.html' %}
+{% load static %}
+{% block title %} staff list {% endblock %}
+
+
+
+
+{% block body_content %}
+
+
+
+
+
+
+<div style="margin-top: 250px;border-color: 1px solid red;">
+
+    <div class="row mt-4">
+        <div>
+            <h1>Staff list</h1>
+        </div>
+        <div class="col-6 mx-auto mt-4">
+
+            <table>
+                <thead>
+                    <th>STAFF ID</th>
+                    <th>PICTURE</th>
+                    <th>USERNAME</th>
+                    <th>FIRST NAME</th>
+                    <th>LASTNAME</th>
+                    <th>STATUS</th>
+                    <th>PROFILE</th>
+                    <th>MANAGE ACCOUNT</th>
+                </thead>
+
+                    {% if staff_detail %}
+
+                    {% for staff in staff_detail %}
+                    <td>
+                        <span style="color: #969cad,">
+                            {{staff.user_id}}
+                        </span>
+                    </td>
+                    <td>
+                        {% if staff.profile_passport %}
+                        <img src="{{staff.profile_passport}}" alt="{{profile.user.username}}" class="rounded-full">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{staff.user.username}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{staff.first_name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{staff.last_name}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{staff.postion}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            {{staff.status}}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color: #969cad,">
+                            <a href="{% url 'my_profile' staff.user_id %}"></a>
+                        </span>
+                    </td>
+                    <td>
+                        
+                            <a href="{% url 'manage_account' staff.user_id %}"></a>
+                            <span style="color: #969cad,">
+                            Manage Account
+                            </span>
+
+                    </td>
+
+
+
+
+
+
+
+                    {% endfor %}
+
+                    {% endif %}
+
+                </thead>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock body_content %}
